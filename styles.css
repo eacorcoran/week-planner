@@ -1,0 +1,70 @@
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select {
+  margin-bottom: 50px;
+}
+
+.new-event {
+  display: block;
+  margin: auto;
+  background-color: grey;
+  color: #fff;
+  width: 150px;
+  height: 25px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 2px;
+  text-decoration: none;
+  justify-self: center;
+}
+
+table {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  justify-self: center;
+  border-collapse: collapse;
+  white-space: pre-wrap;
+  border: 1px solid lightgrey;
+  line-height: 30px;
+}
+
+thead {
+  text-align: left;
+  font-weight: 10;
+}
+
+th,
+td {
+  border: 1px solid lightgray;
+  padding: 8px;
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(238, 236, 236);
+}
+
+.footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  margin-top: 50px;
+  text-align: left;
+}
