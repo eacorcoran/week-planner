@@ -10,8 +10,8 @@
     <div class="container">
       <h1>Weekly Planner</h1>
       <h2>Choose Day to Show Events</h2>
-      <label for="dow">Day of Week</label>
-      <select name="dow" id="dow">
+      <label for="dow" class="dow_label">Day of Week</label>
+      <select name="dow" id="dow" class="dow_select">
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
@@ -21,6 +21,45 @@
         <option value="Sunday">Sunday</option>
       </select>
       <a href="#" class="new-event">Add New Event</a>
+      <dialog>
+        <form>
+          <label for="time">Time of Event:</label>
+          <select name="time" id="time">
+            <option value="" selected disabled hidden>Choose a Time</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+          </select>
+          <label for="day">Day of Week</label>
+          <select name="day" id="day">
+            <option value="" selected disabled hidden>Choose a Day</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+          <label for="info">Event Information</label>
+          <textarea id="info" name="info" rows="10" cols="33"></textarea>
+          <div class="modal-actions">
+            <a href="#" class="dismiss-modal-cancel">Cancel</a>
+            <a href="#" class="dismiss-modal-confirm">Confirm</a>
+          </div>
+        </form>
+      </dialog>
       <div class="table">
         <table>
           <thead>
@@ -31,55 +70,60 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-1">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-2">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-3">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-4">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-5">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-6">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-6">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-7">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-8">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr class="row-9">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
+            </tr>
+            <tr class="row-10">
+              <td class="time"></td>
+              <td class="event"></td>
+              <td class="actions"></td>
             </tr>
           </tbody>
         </table>
