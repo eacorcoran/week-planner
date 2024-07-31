@@ -7,7 +7,7 @@ interface eventFormat {
 }
 
 let data = {
-  dow: 'monday',
+  dow: "Monday",
   events: readEntries(),
   editing: {} as eventFormat,
   nextEventId: readNextEventID(),

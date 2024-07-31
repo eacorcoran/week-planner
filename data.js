@@ -1,5 +1,5 @@
 var data = {
-    dow: 'monday',
+    dow: "Monday",
     events: readEntries(),
     editing: {},
     nextEventId: readNextEventID(),
