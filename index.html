@@ -24,7 +24,7 @@
       <dialog>
         <form>
           <label for="time">Time of Event:</label>
-          <select name="time" id="time">
+          <select name="time" id="time" required>
             <option value="" selected disabled hidden>Choose a Time</option>
             <option value="04:00">04:00</option>
             <option value="05:00">05:00</option>
@@ -42,7 +42,7 @@
             <option value="17:00">17:00</option>
           </select>
           <label for="day">Day of Week</label>
-          <select name="day" id="day">
+          <select name="day" id="day" required>
             <option value="" selected disabled hidden>Choose a Day</option>
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
@@ -53,10 +53,10 @@
             <option value="Sunday">Sunday</option>
           </select>
           <label for="info">Event Information</label>
-          <textarea id="info" name="info" rows="10" cols="33"></textarea>
+          <textarea id="info" name="info" rows="10" cols="33" required></textarea>
           <div class="modal-actions">
             <a href="#" class="dismiss-modal-cancel">Cancel</a>
-            <a href="#" class="dismiss-modal-confirm">Confirm</a>
+            <input type="submit" class="dismiss-modal-confirm" value="Confirm"></input>
           </div>
         </form>
       </dialog>
@@ -130,6 +130,7 @@
       </div>
       <p class="footer">2023 Weekly Planner Inc</p>
     </div>
+    <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

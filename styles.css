@@ -86,9 +86,9 @@ form > select {
 
 .dismiss-modal-cancel {
   position: relative;
-  left: -60px;
+  left: -50px;
   background-color: #b6b6b6;
-  width: 90px;
+  width: 120px;
   height: 30px;
   color: white;
   border-radius: 4px;
@@ -96,19 +96,20 @@ form > select {
   margin-top: 10px;
   margin-bottom: 10px;
   line-height: 21.79px;
-  padding: 7px;
+  padding: 9px;
 }
 
 .dismiss-modal-confirm {
   position: relative;
-  left: 60px;
+  left: 50px;
   background-color: green;
   width: 90px;
-  height: 30px;
+  height: 40px;
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 7px;
+  font-size: 16px;
+  border: none;
 }
