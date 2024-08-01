@@ -1,0 +1,149 @@
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+}
+
+.dow_label {
+  margin-bottom: 10px;
+}
+
+.new-event {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  background-color: grey;
+  color: #fff;
+  width: 150px;
+  height: 25px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 2px;
+  text-decoration: none;
+  justify-self: center;
+}
+
+table {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  justify-self: center;
+  white-space: pre-wrap;
+}
+
+thead {
+  text-align: left;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+th,
+td {
+  border: 1px solid lightgray;
+  text-align: left;
+  height: 40px;
+  padding-left: 5px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(238, 236, 236);
+}
+
+.footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  margin-top: 50px;
+  text-align: left;
+}
+
+dialog {
+  width: 300px;
+  line-height: 30px;
+}
+
+form > label {
+  text-align: left;
+  margin-top: 10px;
+}
+
+form > select {
+  width: 290px;
+  height: 30px;
+}
+
+.dismiss-modal-cancel {
+  position: relative;
+  left: -50px;
+  background-color: #b6b6b6;
+  width: 120px;
+  height: 30px;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 21.79px;
+  padding: 9px;
+}
+
+.dismiss-modal-confirm {
+  position: relative;
+  left: 50px;
+  background-color: green;
+  width: 90px;
+  height: 40px;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.edit_button {
+  background-color: blue;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  align-content: center;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.delete_button {
+  background-color: red;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  align-content: center;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+option,
+textarea {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
