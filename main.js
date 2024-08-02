@@ -38,39 +38,7 @@ $form.addEventListener('submit', function (event) {
     /* entry id should always increment so that no two entries share an entry id */
     data.nextEventId = eventID + 1;
     /* updating the dom tree with the new event */
-    var $table = document.querySelector('table');
-    if (!$table)
-        throw new Error('The $table query failed');
-    var rowNum = 1;
-    for (var i = 0; i < data.events.length; i++) {
-        if (data.dow === data.events[i].day) {
-            var $row = $table.rows[rowNum];
-            $row.className = data.events[i].eventID.toString();
-            var $time = $row.cells[0];
-            $time.textContent = data.events[i].time;
-            var $info = $row.cells[1];
-            $info.textContent = data.events[i].info;
-            var $actions = $row.cells[2];
-            $actions.style.display = 'flex';
-            $actions.style.justifyContent = 'space-evenly';
-            $actions.style.alignItems = 'center';
-            /* create edit button */
-            var $editButton = document.createElement('a');
-            $editButton.href = '#';
-            $editButton.textContent = 'Edit';
-            $editButton.className = 'edit_button';
-            /* create delete button */
-            var $deleteButton = document.createElement('a');
-            $deleteButton.href = '#';
-            $deleteButton.textContent = 'Delete';
-            $deleteButton.className = 'delete_button';
-            /* append edit and delete to action cells */
-            $actions.innerHTML = '';
-            $actions.appendChild($editButton);
-            $actions.appendChild($deleteButton);
-            rowNum++;
-        }
-    }
+    updateDOMbyDay();
     /* form is reset */
     $form.reset();
     /* entries are written to local storage */
@@ -79,38 +47,21 @@ $form.addEventListener('submit', function (event) {
 });
 /* listener for when content is loaded */
 document.addEventListener('DOMContentLoaded', function () {
-    var $table = document.querySelector('table');
-    if (!$table)
-        throw new Error('The $table query failed');
-    /* updates the dom tree with the data object entries */
-    var rowNum = 1;
-    for (var i = 0; i < data.events.length; i++) {
-        if (data.dow === data.events[i].day) {
-            var $row = $table.rows[rowNum];
-            $row.className = data.events[i].eventID.toString();
-            var $time = $row.cells[0];
-            $time.textContent = data.events[i].time;
-            var $info = $row.cells[1];
-            $info.textContent = data.events[i].info;
-            var $actions = $row.cells[2];
-            $actions.style.display = 'flex';
-            $actions.style.justifyContent = 'space-evenly';
-            $actions.style.alignItems = 'center';
-            /* create edit button */
-            var $editButton = document.createElement('a');
-            $editButton.href = '#';
-            $editButton.textContent = 'Edit';
-            $editButton.className = 'edit_button';
-            /* create delete button */
-            var $deleteButton = document.createElement('a');
-            $deleteButton.href = '#';
-            $deleteButton.textContent = 'Delete';
-            $deleteButton.className = 'delete_button';
-            /* append edit and delete to action cells */
-            $actions.innerHTML = '';
-            $actions.appendChild($editButton);
-            $actions.appendChild($deleteButton);
-            rowNum++;
-        }
-    }
+    var $dowSelection = document.getElementById('dow');
+    if (!$dowSelection)
+        throw new Error('$dowSelection is null');
+    data.dow = readDOW();
+    $dowSelection.value = data.dow;
+    updateDOMbyDay();
+});
+/* Updates local storage, data array, and the DOM event tree with events for the selected date*/
+var $dowSelection = document.getElementById('dow');
+if (!$dowSelection)
+    throw new Error('$dowSelection is null');
+$dowSelection.addEventListener('change', function (event) {
+    var $eventTarget = event.target;
+    var selectedDate = $eventTarget.value;
+    writeDOW(selectedDate);
+    data.dow = selectedDate;
+    updateDOMbyDay();
 });

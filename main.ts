@@ -14,14 +14,14 @@ const $newEntryClick = document.querySelector('.new-event');
 if (!$newEntryClick) throw Error('$newEntryClick does not exist');
 
 $newEntryClick.addEventListener('click', function (event) {
-    $dialog.showModal();
+  $dialog.showModal();
 });
 
 const $dismissModal = document.querySelector('.dismiss-modal-cancel');
 if (!$dismissModal) throw Error('$dismissModal does not exist');
 
 $dismissModal.addEventListener('click', function (event) {
-    $dialog.close();
+  $dialog.close();
 });
 
 const $form = document.querySelector('form') as HTMLFormElement;
@@ -52,45 +52,7 @@ $form.addEventListener('submit', (event: Event) => {
   data.nextEventId = eventID + 1;
 
   /* updating the dom tree with the new event */
-  const $table = document.querySelector('table') as HTMLTableElement;
-  if (!$table) throw new Error('The $table query failed');
-
-  let rowNum = 1;
-
-  for (let i = 0; i < data.events.length; i++) {
-    if (data.dow === data.events[i].day) {
-      const $row = $table.rows[rowNum];
-      $row.className = data.events[i].eventID.toString();
-      const $time = $row.cells[0];
-      $time.textContent = data.events[i].time;
-      const $info = $row.cells[1];
-      $info.textContent = data.events[i].info;
-      const $actions = $row.cells[2];
-
-      $actions.style.display = 'flex';
-      $actions.style.justifyContent = 'space-evenly';
-      $actions.style.alignItems = 'center';
-
-      /* create edit button */
-      const $editButton = document.createElement('a');
-      $editButton.href = '#';
-      $editButton.textContent = 'Edit';
-      $editButton.className = 'edit_button';
-
-      /* create delete button */
-      const $deleteButton = document.createElement('a');
-      $deleteButton.href = '#';
-      $deleteButton.textContent = 'Delete';
-      $deleteButton.className = 'delete_button';
-
-      /* append edit and delete to action cells */
-      $actions.innerHTML = '';
-      $actions.appendChild($editButton);
-      $actions.appendChild($deleteButton);
-
-      rowNum++;
-    }
-  }
+  updateDOMbyDay();
 
   /* form is reset */
   $form.reset();
@@ -103,45 +65,24 @@ $form.addEventListener('submit', (event: Event) => {
 
 /* listener for when content is loaded */
 document.addEventListener('DOMContentLoaded', function () {
+  const $dowSelection = document.getElementById('dow') as HTMLSelectElement;
+  if (!$dowSelection) throw new Error('$dowSelection is null');
 
-  const $table = document.querySelector('table');
-  if (!$table) throw new Error('The $table query failed');
+  data.dow = readDOW();
+  $dowSelection.value = data.dow;
 
-  /* updates the dom tree with the data object entries */
-  let rowNum = 1;
+  updateDOMbyDay();
 
-  for (let i = 0; i < data.events.length; i++) {
-    if (data.dow === data.events[i].day) {
-      const $row = $table.rows[rowNum];
-      $row.className = data.events[i].eventID.toString();
-      const $time = $row.cells[0];
-      $time.textContent = data.events[i].time;
-      const $info = $row.cells[1];
-      $info.textContent = data.events[i].info;
-      const $actions = $row.cells[2];
+});
 
-      $actions.style.display = 'flex';
-      $actions.style.justifyContent = 'space-evenly';
-      $actions.style.alignItems = 'center';
+/* Updates local storage, data array, and the DOM event tree with events for the selected date*/
+const $dowSelection = document.getElementById('dow');
+if (!$dowSelection) throw new Error('$dowSelection is null');
 
-      /* create edit button */
-      const $editButton = document.createElement('a');
-      $editButton.href = '#';
-      $editButton.textContent = 'Edit';
-      $editButton.className = 'edit_button';
-
-      /* create delete button */
-      const $deleteButton = document.createElement('a');
-      $deleteButton.href = '#';
-      $deleteButton.textContent = 'Delete';
-      $deleteButton.className = 'delete_button';
-
-      /* append edit and delete to action cells */
-      $actions.innerHTML = '';
-      $actions.appendChild($editButton);
-      $actions.appendChild($deleteButton);
-
-      rowNum++;
-    }
-  }
+$dowSelection.addEventListener('change', function (event) {
+  const $eventTarget = event.target as HTMLSelectElement;
+  const selectedDate = $eventTarget.value;
+  writeDOW(selectedDate);
+  data.dow = selectedDate;
+  updateDOMbyDay();
 });
